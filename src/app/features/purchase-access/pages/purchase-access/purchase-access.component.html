@@ -1,0 +1,42 @@
+<div
+    class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden selection:bg-primary/30">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]">
+        </div>
+    </div>
+
+    <app-purchase-header></app-purchase-header>
+
+    <main class="relative z-10 flex-1 flex flex-col items-center justify-center p-4 md:p-8">
+        <div class="w-full max-w-[640px] flex flex-col items-center">
+
+            <app-purchase-card></app-purchase-card>
+
+            <div class="mt-6 text-center">
+                <p class="text-slate-400 dark:text-[#637588] text-sm font-medium">
+                    Session ID: <span class="font-mono text-slate-500 dark:text-[#9dabb9]">8A29-1B4C-99X2</span>
+                </p>
+                <p class="text-slate-400 dark:text-[#637588] text-xs mt-2 opacity-60">
+                    No cierres esta ventana hasta completar la compra.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer
+        class="relative z-10 flex flex-col gap-6 px-5 py-8 text-center border-t border-transparent dark:border-[#283039]/30">
+        <div class="flex flex-wrap items-center justify-center gap-6">
+            <a
+                class="text-slate-500 dark:text-[#9dabb9] hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors cursor-pointer">Ayuda
+                y Soporte</a>
+            <a
+                class="text-slate-500 dark:text-[#9dabb9] hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors cursor-pointer">Términos
+                y Condiciones</a>
+            <a
+                class="text-slate-500 dark:text-[#9dabb9] hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors cursor-pointer">Política
+                de Privacidad</a>
+        </div>
+        <p class="text-slate-400 dark:text-[#637588] text-sm">© 2023 TicketQueue. Todos los derechos reservados.</p>
+    </footer>
+</div>

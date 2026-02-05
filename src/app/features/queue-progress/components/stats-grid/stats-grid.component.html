@@ -1,0 +1,29 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div
+        class="p-5 rounded-xl bg-gray-50 dark:bg-[#151e29] border border-gray-200 dark:border-border-dark flex flex-col gap-1 items-center justify-center text-center group hover:border-primary/50 transition-colors">
+        <span
+            class="material-symbols-outlined text-slate-400 dark:text-slate-500 mb-1 group-hover:text-primary transition-colors">person_pin_circle</span>
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Tu posición actual</p>
+        <p class="text-3xl font-bold text-slate-900 dark:text-white tabular-nums tracking-tight">{{
+            queueService.queueStatus().position |
+            number }}</p>
+    </div>
+    <div
+        class="p-5 rounded-xl bg-gray-50 dark:bg-[#151e29] border border-gray-200 dark:border-border-dark flex flex-col gap-1 items-center justify-center text-center group hover:border-primary/50 transition-colors">
+        <span
+            class="material-symbols-outlined text-slate-400 dark:text-slate-500 mb-1 group-hover:text-primary transition-colors">groups</span>
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Usuarios delante de ti</p>
+        <p class="text-3xl font-bold text-slate-900 dark:text-white tabular-nums tracking-tight">{{
+            queueService.queueStatus().usersAhead |
+            number }}</p>
+    </div>
+    <div
+        class="p-5 rounded-xl bg-gray-50 dark:bg-[#151e29] border border-gray-200 dark:border-border-dark flex flex-col gap-1 items-center justify-center text-center group hover:border-primary/50 transition-colors">
+        <span
+            class="material-symbols-outlined text-slate-400 dark:text-slate-500 mb-1 group-hover:text-primary transition-colors">confirmation_number</span>
+        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Total en fila</p>
+        <p class="text-3xl font-bold text-slate-900 dark:text-white tabular-nums tracking-tight">{{
+            queueService.queueStatus().totalUsers |
+            number }}</p>
+    </div>
+</div>

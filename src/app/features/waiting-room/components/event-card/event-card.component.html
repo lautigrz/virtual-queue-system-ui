@@ -1,0 +1,67 @@
+<div
+    class="w-full flex flex-col md:flex-row items-center gap-8 p-6 md:p-8 rounded-2xl bg-white/50 dark:bg-slate-900/50 border border-white/60 dark:border-slate-800 shadow-xl backdrop-blur-md">
+
+    <div class="shrink-0 relative group">
+        <div class="h-48 w-48 md:h-56 md:w-56 rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+            <div class="h-full w-full bg-center bg-no-repeat bg-cover transform transition-transform duration-700 group-hover:scale-105"
+                data-alt="Abstract concert crowd with colorful stage lights"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAUt1h6Q5p64aO_NCjLzsLOF7y5UEw8pSgVALLFtPC2MgiTuvhE8THK4fuGS2evwqIaMNUrxNlNXOOzKQdZFUcSv2LGZEQZsyE-CwgFPDcDbbGpntlNg9iZOObvYdva_rAlPLASBtE0443oMk4z2C7kB8imPXGmFQdF_BUlFVJOXBey0oCp68OD738wdSdpJ414FA69EXgNByZmuYE3a1ezuITYQomgjhXOxRL3eiSTWBmMmKQdhjuQjJwXdiPRkk1SXeqyzv8egJV");'>
+            </div>
+        </div>
+
+        <div class="absolute bottom-3 left-0 right-0 text-center">
+            <span
+                class="px-3 py-1 bg-black/60 backdrop-blur-sm rounded-full text-white text-[10px] font-bold tracking-widest uppercase">En
+                Vivo</span>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center md:items-start text-center md:text-left grow gap-4">
+        <div>
+            <p class="text-primary font-bold tracking-wider text-sm mb-1 uppercase">Sala de Espera</p>
+            <h1 class="text-slate-900 dark:text-white text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                Festival Horizonte 2024</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-lg font-medium mt-2">Estadio Nacional • 15 de Noviembre
+            </p>
+        </div>
+
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent my-2">
+        </div>
+
+        <div class="w-full flex flex-col gap-3">
+            <p
+                class="text-slate-600 dark:text-slate-400 text-sm font-medium uppercase tracking-widest text-center md:text-left">
+                La fila comienza en</p>
+
+            <div class="flex gap-3 justify-center md:justify-start">
+                <div class="flex flex-col gap-1">
+                    <div
+                        class="flex h-16 w-14 md:w-20 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-inner">
+                        <span class="text-slate-900 dark:text-white text-2xl md:text-3xl font-bold font-mono">{{
+                            eventService.hours()| number:'2.0-0' }}</span>
+                    </div>
+                    <span class="text-xs text-slate-500 text-center font-medium">Horas</span>
+                </div>
+                <span class="text-slate-300 dark:text-slate-600 text-3xl font-light py-2">:</span>
+                <div class="flex flex-col gap-1">
+                    <div
+                        class="flex h-16 w-14 md:w-20 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-inner">
+                        <span class="text-primary text-2xl md:text-3xl font-bold font-mono">{{ eventService.minutes() |
+                            number:'2.0-0' }}</span>
+                    </div>
+                    <span class="text-xs text-slate-500 text-center font-medium">Minutos</span>
+                </div>
+                <span class="text-slate-300 dark:text-slate-600 text-3xl font-light py-2">:</span>
+                <div class="flex flex-col gap-1">
+                    <div
+                        class="flex h-16 w-14 md:w-20 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-inner">
+                        <span class="text-primary text-2xl md:text-3xl font-bold font-mono">{{ eventService.seconds() |
+                            number:'2.0-0' }}</span>
+                    </div>
+                    <span class="text-xs text-slate-500 text-center font-medium">Segundos</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

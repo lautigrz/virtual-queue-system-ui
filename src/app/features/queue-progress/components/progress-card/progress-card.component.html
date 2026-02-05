@@ -1,0 +1,45 @@
+<div
+    class="bg-white dark:bg-surface-dark border border-gray-200 dark:border-border-dark rounded-2xl p-6 md:p-10 shadow-xl backdrop-blur-sm">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div>
+            <h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Estás en la fila</h3>
+            <p class="text-slate-500 dark:text-slate-400 mt-1">Tu lugar está asegurado. No cierres esta ventana.</p>
+        </div>
+        <div class="bg-primary/10 border border-primary/20 rounded-xl p-3 flex items-center gap-3">
+            <div class="bg-primary text-white p-2 rounded-lg flex items-center justify-center">
+                <span class="material-symbols-outlined">timer</span>
+            </div>
+            <div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 uppercase font-semibold">Tiempo Estimado</p>
+                <p class="text-primary font-bold text-lg leading-none">{{ 0 }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar Section -->
+    <div class="flex flex-col gap-4 mb-10">
+        <div class="flex justify-between items-end">
+            <div class="flex flex-col">
+                <span class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Progreso actual</span>
+                <span class="text-4xl font-black text-primary tracking-tight">{{ queueStatus().progress | number:'1.0-0'
+                    }}%</span>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Avanzando suavemente...</span>
+            </div>
+        </div>
+        <div
+            class="h-4 bg-gray-100 dark:bg-[#0f151c] rounded-full overflow-hidden border border-gray-200 dark:border-border-dark relative">
+            <!-- Striped background for empty part -->
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent); background-size: 1rem 1rem;">
+            </div>
+            <!-- Actual Progress -->
+            <div class="h-full bg-primary rounded-full relative transition-all duration-1000 ease-out progress-active"
+                [style.width.%]="queueStatus().progress">
+                <!-- Shine effect on progress bar -->
+                <div class="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-b from-white/20 to-transparent"></div>
+            </div>
+        </div>
+    </div>
+</div>

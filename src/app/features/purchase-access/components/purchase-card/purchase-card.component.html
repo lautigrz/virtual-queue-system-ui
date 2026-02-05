@@ -1,0 +1,50 @@
+<div
+    class="w-full bg-white dark:bg-[#1c2127] rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.6)] border border-[#e5e7eb] dark:border-[#283039] overflow-hidden">
+    <div class="h-40 w-full bg-cover bg-center relative" data-alt="Excited crowd at a concert with vibrant stage lights"
+        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYYZDIRd1lCuqggpduSPuDkVWfSYW6dfNJ8ebd8bliYs2mOj8o_4PfU_GQn4mAI7TRHNJobXztAOgj0WQ_qDQ6IXivxZ76kT3JsIV23Z78nj_6-SEcA-_Mho9ZqfNU7gNMqPGUxS1gcr1kGDkdY2SX6NXYs2shEGmKH6YfTQ5uQQkvkMs_Vk8QmJjdS6QatCIcYVUZpgCLhFCBC9IPTjdPuiXBPqNere6IAislZfBaihPLwI4KKdMqYjII31JzSTg-I71-mPjIw427");'>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1c2127] to-transparent opacity-90 dark:opacity-100"></div>
+    </div>
+    <div class="px-6 pb-8 pt-0 relative flex flex-col items-center text-center -mt-12">
+
+        <div
+            class="size-24 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_25px_rgba(19,127,236,0.6)] border-4 border-[#1c2127] mb-6">
+            <span class="material-symbols-outlined !text-[48px]">check_circle</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+            ¡Es tu turno!
+        </h1>
+        <p class="text-slate-600 dark:text-[#9dabb9] text-lg font-normal leading-relaxed max-w-md mb-8">
+            Gracias por tu paciencia. Hemos reservado tu lugar al frente de la fila. Tienes 10 minutos para completar tu
+            compra.
+        </p>
+
+
+        <div class="w-full max-w-sm bg-background-light dark:bg-[#283039]/50 rounded-lg p-4 border border-[#e5e7eb] dark:border-[#283039] mb-8"
+            *ngIf="time$ | async as time">
+            <div
+                class="flex items-center justify-center gap-2 mb-2 text-primary text-sm font-semibold uppercase tracking-wider">
+                <span class="material-symbols-outlined !text-[18px] animate-pulse-slow">timer</span>
+                Tu turno expira en
+            </div>
+            <div class="flex justify-center gap-4">
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">{{
+                        time.minutes | number:'2.0-0' }}</div>
+                    <span class="text-xs text-slate-500 dark:text-[#9dabb9]">Minutos</span>
+                </div>
+                <div class="text-3xl font-bold text-slate-400 dark:text-[#505c6e] pb-4">:</div>
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl font-bold font-mono text-slate-900 dark:text-white tabular-nums">{{
+                        time.seconds | number:'2.0-0' }}</div>
+                    <span class="text-xs text-slate-500 dark:text-[#9dabb9]">Segundos</span>
+                </div>
+            </div>
+        </div>
+
+        <button
+            class="w-full max-w-sm group flex cursor-pointer items-center justify-center rounded-xl h-14 bg-primary hover:bg-primary/90 text-white gap-3 text-lg font-bold shadow-[0_4px_14px_0_rgba(19,127,236,0.39)] hover:shadow-[0_6px_20px_rgba(19,127,236,0.23)] hover:-translate-y-0.5 transition-all duration-200">
+            <span>Ir a Comprar Entradas</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </button>
+    </div>
+</div>

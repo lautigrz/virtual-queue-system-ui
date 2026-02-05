@@ -1,0 +1,32 @@
+<div
+    class="font-display bg-background-light dark:bg-background-dark min-h-screen flex flex-col animated-bg text-slate-900 dark:text-white overflow-x-hidden">
+    <app-queue-header></app-queue-header>
+
+    <main class="flex-grow flex flex-col items-center justify-center p-4 md:p-8 relative">
+        <div class="absolute top-1/4 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10 pointer-events-none">
+        </div>
+
+        <div class="w-full max-w-[960px] flex flex-col gap-8">
+
+            <app-hero-section></app-hero-section>
+
+            <app-progress-card></app-progress-card>
+
+            <app-stats-grid></app-stats-grid>
+
+            <app-info-box></app-info-box>
+            <div class="flex flex-wrap justify-center gap-6 mt-4 text-sm text-slate-500 dark:text-slate-500">
+                <a class="hover:text-primary transition-colors cursor-pointer">Términos y Condiciones</a>
+                <a class="hover:text-primary transition-colors cursor-pointer">Política de Privacidad</a>
+                <a class="hover:text-primary transition-colors cursor-pointer">Preguntas Frecuentes</a>
+                <a class="hover:text-primary transition-colors flex items-center gap-1 cursor-pointer">
+                    <span class="material-symbols-outlined !text-[16px]">help</span>
+                    Ayuda
+                </a>
+            </div>
+        </div>
+    </main>
+</div>
