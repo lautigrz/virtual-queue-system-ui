@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QueueService } from '../../../../core/services/queue.service';
 
@@ -10,12 +10,16 @@ import { QueueService } from '../../../../core/services/queue.service';
   templateUrl: './progress-card.component.html',
   styles: ``
 })
-export class ProgressCardComponent implements OnInit {
+export class ProgressCardComponent implements OnInit, OnDestroy {
   private queueService = inject(QueueService);
 
   queueStatus = this.queueService.queueStatus;
 
   ngOnInit(): void {
-    console.log(this.queueStatus().progress);
+    this.queueService.startPolling();
+  }
+
+  ngOnDestroy(): void {
+    this.queueService.stopPolling();
   }
 }

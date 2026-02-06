@@ -34,8 +34,6 @@ type QueueStatus = QueueStatusResponse & QueueRedirectResponse;
     providedIn: 'root'
 })
 
-
-
 export class QueueService {
 
     private httpClient = inject(HttpClient);

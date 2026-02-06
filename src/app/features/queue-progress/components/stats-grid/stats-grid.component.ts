@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QueueService } from '../../../../core/services/queue.service';
 
@@ -9,7 +9,7 @@ import { QueueService } from '../../../../core/services/queue.service';
   templateUrl: './stats-grid.component.html',
   styles: ``
 })
-export class StatsGridComponent implements OnInit {
+export class StatsGridComponent implements OnInit, OnDestroy {
   queueService = inject(QueueService);
 
   ngOnInit(): void {
