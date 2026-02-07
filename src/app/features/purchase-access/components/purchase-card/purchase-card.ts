@@ -6,7 +6,7 @@ import { map, takeWhile, timer } from 'rxjs';
   selector: 'app-purchase-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './purchase-card.component.html',
+  templateUrl: './purchase-card.html',
   styles: ``
 })
 export class PurchaseCardComponent {

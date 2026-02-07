@@ -1,0 +1,62 @@
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ExpirationTimerComponent } from '../../components/expiration-timer/expiration-timer';
+import { TicketCardComponent, TicketType } from '../../components/ticket-card/ticket-card';
+import { OrderSummaryComponent, SelectedTicket } from '../../components/order-summary/order-summary';
+
+@Component({
+  selector: 'app-ticket-selection',
+  standalone: true,
+  imports: [CommonModule, ExpirationTimerComponent, TicketCardComponent, OrderSummaryComponent],
+  templateUrl: './ticket-selection.html',
+  styleUrl: './ticket-selection.css',
+})
+export class TicketSelectionComponent {
+  expiresInSeconds = signal(600); // 10 minutes
+
+  availableTickets: TicketType[] = [
+    {
+      id: 'early-bird',
+      title: 'Early Bird',
+      description: 'Precio especial por tiempo limitado.',
+      price: 45
+    },
+    {
+      id: 'general',
+      title: 'Entrada General',
+      description: 'Acceso estándar al recinto y todas las áreas comunes.',
+      price: 60
+    },
+    {
+      id: 'vip',
+      title: 'Entrada VIP',
+      description: 'Acceso prioritario, zona exclusiva y barra privada.',
+      price: 120
+    }
+  ];
+
+  selectedTickets = signal<SelectedTicket[]>([]);
+
+  onQuantityChange(ticket: TicketType, quantity: number) {
+    this.selectedTickets.update((current) => {
+      const existingRequest = current.find((item) => item.ticket.id === ticket.id);
+
+      if (quantity === 0) {
+        return current.filter((item) => item.ticket.id !== ticket.id);
+      }
+
+      if (existingRequest) {
+        return current.map((item) =>
+          item.ticket.id === ticket.id ? { ...item, quantity } : item
+        );
+      }
+
+      return [...current, { ticket, quantity }];
+    });
+  }
+
+  onCheckout() {
+    console.log('Procesando compra:', this.selectedTickets());
+    // TODO: Navigate to purchase process or confirmation
+  }
+}

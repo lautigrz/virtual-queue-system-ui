@@ -1,0 +1,10 @@
+<div class="flex items-center space-x-2 text-white/90 rounded-full border
+bg-[#1b2a3a] border-transparent px-4 py-2
+">
+    <span class="material-symbols-outlined text-primary text-xl">timer</span>
+    <span class="text-sm font-medium">Tu turno expira en:</span>
+    <div class="font-mono text-sm sm:text-xs font-bold bg-white/10 px-3 py-1 rounded-md min-w-[3.5rem] text-center">
+
+        {{ minutes() | number:'2.0' }}:{{ seconds() | number:'2.0' }}
+    </div>
+</div>

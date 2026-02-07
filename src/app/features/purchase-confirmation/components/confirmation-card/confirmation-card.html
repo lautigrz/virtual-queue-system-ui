@@ -1,0 +1,84 @@
+<div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-8 max-w-2xl mx-auto shadow-2xl">
+
+    <!-- Success Header -->
+    <div class="text-center mb-10">
+        <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-white mb-3">¡Entradas Adquiridas!</h1>
+        <p class="text-gray-400 text-lg">
+            Tu lugar en el evento está asegurado. Hemos enviado los detalles a tu correo.
+        </p>
+    </div>
+
+    <!-- Event Details Card -->
+    <div class="bg-gray-900/50 rounded-xl border border-gray-700 overflow-hidden">
+
+        <!-- Event Title -->
+        <div class="p-6 border-b border-gray-700 bg-gray-800/30">
+            <h2 class="text-xl font-bold text-white">{{ eventName }}</h2>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Date & Time -->
+            <div>
+                <div class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-1">Fecha y Hora</div>
+                <div class="text-white font-medium">{{ eventDate }}</div>
+                <div class="text-gray-400 text-sm">{{ eventTime }}</div>
+            </div>
+
+            <!-- Location -->
+            <div>
+                <div class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-1">Ubicación</div>
+                <div class="text-white font-medium">{{ eventLocation }}</div>
+                <div class="text-gray-400 text-sm">{{ eventAddress }}</div>
+            </div>
+
+            <!-- Ticket Type -->
+            <div>
+                <div class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-1">Tipo de Entrada</div>
+                <div class="text-white font-medium">{{ ticketType }} × {{ ticketQuantity }}</div>
+                <div class="text-gray-400 text-sm">{{ ticketAccess }}</div>
+            </div>
+
+            <!-- Locator -->
+            <div>
+                <div class="text-gray-500 text-sm font-medium uppercase tracking-wider mb-1">Localizador</div>
+                <div class="font-mono text-xl font-bold text-blue-400 tracking-wide">{{ locator }}</div>
+            </div>
+
+        </div>
+
+        <!-- Mobile Ticket Note -->
+        <div class="bg-blue-900/10 p-4 border-t border-gray-700 flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm text-blue-200">
+                No es necesario imprimir tus entradas. Podrás presentarlas directamente desde tu móvil en el acceso al
+                recinto.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 text-sm text-gray-500">
+        <a href="#" class="hover:text-blue-400 transition-colors">Ayuda y Soporte</a>
+        <span class="hidden sm:inline">&bull;</span>
+        <a href="#" class="hover:text-blue-400 transition-colors">Términos del Servicio</a>
+        <span class="hidden sm:inline">&bull;</span>
+        <a href="#" class="hover:text-blue-400 transition-colors">Política de Cancelación</a>
+    </div>
+
+</div>

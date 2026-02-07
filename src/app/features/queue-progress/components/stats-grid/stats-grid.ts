@@ -2,18 +2,15 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QueueService } from '../../../../core/services/queue.service';
 
-
 @Component({
-  selector: 'app-progress-card',
+  selector: 'app-stats-grid',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './progress-card.component.html',
+  templateUrl: './stats-grid.html',
   styles: ``
 })
-export class ProgressCardComponent implements OnInit, OnDestroy {
-  private queueService = inject(QueueService);
-
-  queueStatus = this.queueService.queueStatus;
+export class StatsGridComponent implements OnInit, OnDestroy {
+  queueService = inject(QueueService);
 
   ngOnInit(): void {
     this.queueService.startPolling();

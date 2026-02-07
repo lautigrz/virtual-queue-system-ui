@@ -1,0 +1,38 @@
+<div
+    class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 transition-all hover:border-blue-500/50">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+
+        <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-2">{{ ticket.title }}</h3>
+            <p class="text-gray-400 text-sm mb-4">{{ ticket.description }}</p>
+            <div class="text-2xl font-bold text-blue-400">
+                {{ ticket.price | currency:'USD':'symbol':'1.0-0' }}
+            </div>
+        </div>
+
+        <div class="flex items-center bg-gray-900 rounded-lg p-1 border border-gray-700">
+            <button (click)="decrement()" [disabled]="quantity() === 0"
+                class="w-10 h-10 flex items-center justify-center rounded-md text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Decrease quantity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+
+            <div class="w-12 text-center text-xl font-bold text-white">
+                {{ quantity() }}
+            </div>
+
+            <button (click)="increment()" [disabled]="quantity() >= maxQuantity"
+                class="w-10 h-10 flex items-center justify-center rounded-md text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                aria-label="Increase quantity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

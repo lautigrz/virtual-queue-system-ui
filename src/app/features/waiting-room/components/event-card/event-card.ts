@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-event-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './event-card.component.html',
+  templateUrl: './event-card.html',
   styles: ``
 })
 export class EventCardComponent implements OnInit {

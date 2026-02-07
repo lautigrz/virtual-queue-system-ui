@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-gray-900 text-gray-100 font-sans selection:bg-blue-500/30">
+
+    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800 py-4">
+        <div
+            class="container mx-auto px-4 h-20 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3">
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white">
+                    T
+                </div>
+                <span class="font-bold text-sm tracking-tight md:text-xl">TicketFlow</span>
+            </div>
+
+            <app-expiration-timer [initialSeconds]="expiresInSeconds()"></app-expiration-timer>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+
+            <div class="lg:col-span-2 space-y-8">
+
+
+                <div>
+                    <h1 class="text-3xl font-bold text-white mb-2">Selecciona tus entradas</h1>
+                    <p class="text-gray-400">
+                        Elige la zona y cantidad de entradas que deseas adquirir. Puedes seleccionar hasta 6 entradas
+                        por persona.
+                    </p>
+                </div>
+
+
+                <div class="space-y-4">
+                    <app-ticket-card *ngFor="let ticket of availableTickets" [ticket]="ticket"
+                        (quantityChange)="onQuantityChange(ticket, $event)">
+                    </app-ticket-card>
+                </div>
+
+            </div>
+
+
+            <div class="lg:col-span-1">
+                <app-order-summary [selectedTickets]="selectedTickets()" (checkout)="onCheckout()">
+                </app-order-summary>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-800 mt-12 py-8 bg-gray-950">
+        <div class="container mx-auto px-4 text-center text-gray-600 text-sm">
+            <p>&copy; 2024 TicketFlow. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</div>
