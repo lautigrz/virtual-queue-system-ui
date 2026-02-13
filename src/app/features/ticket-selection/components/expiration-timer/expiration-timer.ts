@@ -1,5 +1,6 @@
 import { Component, computed, DestroyRef, inject, input, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ExpirationService } from '../../../../core/services/expiration.service';
 
 @Component({
   selector: 'app-expiration-timer',
@@ -8,26 +9,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './expiration-timer.html',
   styleUrl: './expiration-timer.css',
 })
-export class ExpirationTimerComponent implements OnInit {
+export class ExpirationTimerComponent {
 
+  private expirationService = inject(ExpirationService);
 
-  initialSeconds = input<number>(600);
+  minutes = computed(() => this.expirationService.minutes());
+  seconds = computed(() => this.expirationService.seconds());
 
-  private remainingSeconds = signal<number>(0);
-  private destroyRef = inject(DestroyRef);
-
-  minutes = computed(() => Math.floor(this.remainingSeconds() / 60));
-  seconds = computed(() => this.remainingSeconds() % 60);
-
-  ngOnInit() {
-    this.remainingSeconds.set(this.initialSeconds());
-
-    const intervalId = setInterval(() => {
-      this.remainingSeconds.update((s) => Math.max(0, s - 1));
-    }, 1000);
-
-    this.destroyRef.onDestroy(() => {
-      clearInterval(intervalId);
-    });
-  }
 }

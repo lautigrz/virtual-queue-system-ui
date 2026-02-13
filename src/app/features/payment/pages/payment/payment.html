@@ -1,0 +1,12 @@
+<app-payment-layout>
+    <!-- Left Column Content -->
+    <div summary class="h-full">
+        <app-order-summary [items]="selectedTickets()"></app-order-summary>
+    </div>
+
+    <!-- Right Column Content -->
+    <div form>
+        <app-payment-form [total]="total()" [isProcessing]="isProcessing()" (pay)="handlePayment()">
+        </app-payment-form>
+    </div>
+</app-payment-layout>

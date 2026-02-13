@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
+import { BookingService } from '../../../../core/services/booking.service';
 import { CommonModule } from '@angular/common';
 import { ExpirationTimerComponent } from '../../components/expiration-timer/expiration-timer';
 import { TicketCardComponent, TicketType } from '../../components/ticket-card/ticket-card';
@@ -12,7 +14,6 @@ import { OrderSummaryComponent, SelectedTicket } from '../../components/order-su
   styleUrl: './ticket-selection.css',
 })
 export class TicketSelectionComponent {
-  expiresInSeconds = signal(600); // 10 minutes
 
   availableTickets: TicketType[] = [
     {
@@ -37,6 +38,9 @@ export class TicketSelectionComponent {
 
   selectedTickets = signal<SelectedTicket[]>([]);
 
+  private bookingService = inject(BookingService);
+  private router = inject(Router);
+
   onQuantityChange(ticket: TicketType, quantity: number) {
     this.selectedTickets.update((current) => {
       const existingRequest = current.find((item) => item.ticket.id === ticket.id);
@@ -57,6 +61,7 @@ export class TicketSelectionComponent {
 
   onCheckout() {
     console.log('Procesando compra:', this.selectedTickets());
-    // TODO: Navigate to purchase process or confirmation
+    this.bookingService.updateTickets(this.selectedTickets());
+    this.router.navigate(['/payment']);
   }
 }

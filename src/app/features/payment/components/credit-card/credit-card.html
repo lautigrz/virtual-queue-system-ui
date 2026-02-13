@@ -1,0 +1,67 @@
+<div class="group perspective-1000 w-full max-w-sm mx-auto h-56 cursor-pointer">
+    <div class="relative w-full h-full duration-700 preserve-3d transition-transform ease-in-out"
+        [class.rotate-y-180]="isFlipped">
+
+        <!-- Front Side -->
+        <div class="absolute w-full h-full backface-hidden rounded-2xl p-6 text-white shadow-2xl
+                bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700/50 backdrop-blur-xl">
+            <!-- Background Decoration -->
+            <div class="absolute inset-0 rounded-2xl overflow-hidden opacity-20">
+                <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-blue-500 blur-3xl"></div>
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-purple-500 blur-3xl"></div>
+            </div>
+
+            <div class="relative z-10 flex flex-col h-full justify-between">
+                <div class="flex justify-between items-start">
+                    <div
+                        class="w-12 h-9 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-md shadow-inner flex items-center justify-center">
+                        <div class="w-8 h-5 border border-yellow-600/30 rounded opacity-50"></div>
+                    </div>
+                    <span class="text-xl font-bold italic tracking-wider font-mono opacity-90">VISA</span>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="font-mono text-2xl tracking-[0.15em] text-shadow">
+                        {{ cardNumber || '#### #### #### ####' }}
+                    </div>
+
+                    <div class="flex justify-between items-end">
+                        <div class="flex flex-col">
+                            <span class="text-[10px] uppercase text-slate-400 tracking-wider mb-0.5">Card Holder</span>
+                            <span class="font-mono text-sm tracking-wide uppercase">{{ cardName || 'FULL NAME' }}</span>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-[10px] uppercase text-slate-400 tracking-wider mb-0.5">Expires</span>
+                            <span class="font-mono text-sm tracking-wide">{{ expiryDate || 'MM/YY' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Side -->
+        <div class="absolute w-full h-full backface-hidden rounded-2xl rotate-y-180 overflow-hidden text-white shadow-2xl
+                bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700/50">
+
+            <div class="w-full h-12 bg-black mt-6 opacity-90"></div>
+
+            <div class="px-6 mt-6">
+                <div class="flex flex-col items-end">
+                    <span class="text-[10px] uppercase text-slate-400 tracking-wider mb-1 mr-1">CVC</span>
+                    <div class="flex w-full">
+                        <div class="flex-1 h-10 bg-white/10 rounded-l-md"></div>
+                        <div
+                            class="w-12 h-10 bg-white text-slate-900 font-mono font-bold flex items-center justify-center rounded-r-md">
+                            {{ cvc || '123' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-6 right-6">
+                <span class="text-xl font-bold italic tracking-wider font-mono opacity-90">VISA</span>
+            </div>
+        </div>
+
+    </div>
+</div>

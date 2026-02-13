@@ -3,7 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 
 type OpenStatusResponse =
   | { isOpen: false; openTime: number }
-  | { isOpen: true; redirect: string };
+  | { isOpen: true; redirect: string; expiration: number };
 
 
 @Injectable({

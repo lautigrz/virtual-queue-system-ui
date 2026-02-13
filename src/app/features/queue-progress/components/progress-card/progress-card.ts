@@ -10,14 +10,10 @@ import { QueueService } from '../../../../core/services/queue.service';
   templateUrl: './progress-card.html',
   styles: ``
 })
-export class ProgressCardComponent implements OnInit, OnDestroy {
+export class ProgressCardComponent implements OnDestroy {
   private queueService = inject(QueueService);
 
   queueStatus = this.queueService.queueStatus;
-
-  ngOnInit(): void {
-    this.queueService.startPolling();
-  }
 
   ngOnDestroy(): void {
     this.queueService.stopPolling();

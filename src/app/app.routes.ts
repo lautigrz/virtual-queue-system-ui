@@ -13,6 +13,10 @@ export const routes: Routes = [
         loadComponent: () => import('./features/ticket-selection/pages/ticket-selection/ticket-selection').then(m => m.TicketSelectionComponent)
     },
     {
+        path: 'payment',
+        loadComponent: () => import('./features/payment/pages/payment/payment').then(m => m.PaymentComponent)
+    },
+    {
         path: 'confirmation',
         loadComponent: () => import('./features/purchase-confirmation/pages/purchase-confirmation/purchase-confirmation').then(m => m.PurchaseConfirmation)
     }
